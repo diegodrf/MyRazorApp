@@ -1,0 +1,29 @@
+﻿@page
+@model MyRazorApp.Pages.ProductsModel
+@{
+    ViewBag.title = "Categories";
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@((product.Price / 100.0).ToString("C", CultureInfo.CurrentUICulture))</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts {
+    <script src="~/js/myAlert.js"></script>
+}
